@@ -29,7 +29,7 @@
 	margin: 0 auto;
 	height: 200px;
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 250px;
 	background-image: url(van.jpg); ;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -46,12 +46,29 @@
 	width: 120px;
 	font-size: 18px
 }
-.registration{
-	display: flex;
-	justify-content: center;
-	margin-top: 50px;
+#registrationpage{
+	padding-top: 20px;
+	align-items: center;
+	width: 600px;
+	margin: 0 auto;
+	height: 250px;
+	text-align: center;
+	margin-top: 250px;
+	background-image: url(airbaloon.jpg); ;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	font-family: Garamond, 'Times New Roman';
+	font-size: 20px;
 }
-
+#registrationbutton{
+	margin-top: 30px;
+	border-radius: 25px;
+	height: 30px;
+	width: 120px;
+	font-size: 18px
+}
 .form{
 	height: -webkit-fill-available;
 	padding-top: 30px;
