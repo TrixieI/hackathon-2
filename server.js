@@ -2,6 +2,7 @@ const express = require("express");
 const env = require("dotenv");
 const knex = require("knex");
 const path = require("path");
+const fetch = require("node-fetch");
 env.config();
 const app = express();
 const port = process.env.PORT;
@@ -51,13 +52,23 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/home", (req, res) => {
-  res.redirect("/home");
-  return db("users")
-    .returning(["username", "password", "city"])
-    .insert({
-      username: req.body.username,
-      password: req.body.password,
-      city: req.body.city,
-    })
-    .then((data) => console.log(data));
+  fetch("http://localhost:3000/users").then((data) => {
+    data.json().then((users) => {
+      if (
+        users.filter((users) => users.username === req.body.username).length > 0
+      ) {
+        res.send("Sorry, this user already exists! please try again!");
+      } else {
+        res.redirect("/home");
+        return db("users")
+          .returning(["username", "password", "city"])
+          .insert({
+            username: req.body.username,
+            password: req.body.password,
+            city: req.body.city,
+          })
+          .then((data) => console.log(data));
+      }
+    });
+  });
 });
