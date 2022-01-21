@@ -37,6 +37,10 @@ app.get("/home", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public/index.html"));
 });
 
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
+});
+
 app.get("/travel", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public/travel.html"));
 });
@@ -68,6 +72,32 @@ app.post("/home", (req, res) => {
             city: req.body.city,
           })
           .then((data) => console.log(data));
+      }
+    });
+  });
+});
+
+app.post("/check", (req, res) => {
+  fetch("http://localhost:3000/users").then((data) => {
+    data.json().then((users) => {
+      if (
+        users.filter(
+          (users) =>
+            users.username === req.body.username &&
+            users.password === req.body.password
+        ).length > 0
+      ) {
+        res.redirect("/travel");
+      } else if (
+        users.filter(
+          (users) =>
+            users.username === req.body.username &&
+            users.password !== req.body.password
+        ).length > 0
+      ) {
+        res.send("Sorry, incorrect password!");
+      } else {
+        res.send("User doesn't exist!");
       }
     });
   });
