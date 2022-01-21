@@ -1,3 +1,3 @@
 # hackathon-2
 
-Travel App with Weather API and travel costs information
+Full-Stack Travel App with Weather API and travel costs information, connected to a PostgreSQL database using pgAdmin4, backend with node.js and javascript front-end

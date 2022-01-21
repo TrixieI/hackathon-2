@@ -1,24 +1,4 @@
-section{
-	font-size: 16px;
-	font-weight: bold;
-}
-.div{
-	height: 400px;
-	width: 600px;
-/*	border: 1px solid pink;*/
-font-size: 24px;
-font: white;
-font-family: Garamond, 'Times New Roman'
-
-}
-
-button{
-	border-radius: 25px;
-	height: 50px;
-	width: 200px;
-	font-size: 18px
-}
-.div.hot{
+/*.div.hot{
 	background-image: url(https://media.istockphoto.com/photos/zombies-hand-silhouette-picture-id849048646?k=20&m=849048646&s=612x612&w=0&h=Nm6mUt-j-Blsu57blehtugaT8g6WemLOWCreFhHU1ng=);
 	color: white;
 	background-size: cover;
@@ -41,4 +21,64 @@ button{
 	color: black;
 	background-size: cover;
 	position: absolute;
+}*/
+#login{
+	padding-top: 20px;
+	align-items: center;
+	width: 600px;
+	margin: 0 auto;
+	height: 200px;
+	text-align: center;
+	margin-top: 250px;
+	background-image: url(van.jpg); ;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	font-family: Garamond, 'Times New Roman';
+	font-size: 20px;
+	font-weight: bold;
+	background-position: fixed;
+}
+#loginbutton{
+	margin-top: 30px;
+	border-radius: 25px;
+	height: 30px;
+	width: 120px;
+	font-size: 18px
+}
+#registrationpage{
+	padding-top: 20px;
+	align-items: center;
+	width: 600px;
+	margin: 0 auto;
+	height: 250px;
+	text-align: center;
+	margin-top: 250px;
+	background-image: url(airbaloon.jpg); ;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	font-family: Garamond, 'Times New Roman';
+	font-size: 20px;
+	font-weight: bold;
+}
+#registrationbutton{
+	margin-top: 30px;
+	border-radius: 25px;
+	height: 30px;
+	width: 120px;
+	font-size: 18px
+}
+.form{
+	height: -webkit-fill-available;
+	padding-top: 30px;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5));
+}
+.link{
+	font-weight: bold;
+	color: black;
+	font-size: 24px;
+
 }

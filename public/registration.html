@@ -3,19 +3,24 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 	<title>Registration</title>
 </head>
-<body>
+<body id="registrationpage">
 
-	<form action="/home" method="POST">
+
+	<form action="/home" method="POST" id="registration" class="form">
+
 		Username <input type="text" name="username">
-		Password <input type="password" name="password">
-		Home City <input type="text" name="city">
+		Password <input type="password" name="password"><br>
+		Favorite City <input type="text" name="city">
 
-		<button>Register</button>
+		<button id="registrationbutton">Register</button>
 	</form>
 
 
-	<a href="/home">Already a user? Click here to login.</a>
+
+	<a class="link" href="/home">Already a user? Click here to LOGIN.</a>
+
 </body>
 </html>
