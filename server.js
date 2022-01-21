@@ -1,6 +1,7 @@
 const express = require("express");
 const env = require("dotenv");
 const knex = require("knex");
+const path = require("path");
 env.config();
 const app = express();
 const port = process.env.PORT;
@@ -25,14 +26,19 @@ app.listen(process.env.PORT, () =>
   console.log(`Example app listening on port ${process.env.PORT}!`)
 );
 
-app.use("/travel", express.static(__dirname + "/public/travel.html"));
+app.use(express.static(__dirname + "/public"));
 
-app.use("/home", express.static(__dirname + "/public/index.html"));
+app.get("/registration", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public/registration.html"));
+});
 
-app.use(
-  "/registration",
-  express.static(__dirname + "/public/registration.html")
-);
+app.get("/home", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
+});
+
+app.get("/travel", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public/travel.html"));
+});
 
 app.get("/users", (req, res) => {
   return db("users")
