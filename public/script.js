@@ -28,9 +28,16 @@ async function weatherApi(){
 			throw new Error('Error, results are not 200')
 		}else {
 			let weatherResults = await results.json();
-			console.log(weatherResults)
+
 
 	//This section appends the weatherResults to the div inner text
+	// let div = document.getElementById("info");
+	// let icon = document.getElementById("icon");
+	// let src = weatherResults.current.condition.icon;
+	// let img = `<img src=${src}></img>`;
+	// icon.innerHTML = img;
+
+
 	div.innerText = 
 	(`${weatherResults.location.name}, ${weatherResults.location.region} 
 		Current Temperature Farenheit: ${weatherResults.current.temp_f} 
@@ -39,31 +46,27 @@ async function weatherApi(){
 
 		//This section adds background images depending on current weather temperature
 
-		if  (`${weatherResults.current.temp_f}` >= 90){
-			div.classList.add('hot')
-			div.classList.remove('moderate', 'sunny', 'freezing')
-		} 	
-		else if
-			(`${weatherResults.current.temp_f}` < 90 && `${weatherResults.current.temp_f}` >= 65){
-				div.classList.add('moderate')
-				div.classList.remove('hot', 'sunny', 'freezing')
-			}
-			else if
-				(`${weatherResults.current.temp_f}` < 65 && `${weatherResults.current.temp_f}` >= 32){
-					div.classList.add('sunny')
-					div.classList.remove('hot', 'moderate', 'freezing')
-				}
-				else if
-					(`${weatherResults.current.temp_f}` < 32){
-						div.classList.add('freezing')
-						div.classList.remove('moderate', 'sunny', 'sunny')
-					}
+	}
 
-				}
+} catch(e) {
+	console.log(e);
+}
+}
 
-			} catch(e) {
-				console.log(e);
-			}
-		}
 
-		
+
+
+
+
+// 		try {
+// 	const iconResults = await fetch(`${weatherResults.current.condition.icon}`)
+// 	if (iconResults.status !== 200){
+// 		div.innerText = 'Please make sure city spelling is correct'
+// 		throw new Error('Error, results are not 200')
+// 	}else {
+// 		let iconData = await results.json();
+// 		console.log(iconData)
+// 	} catch(e) {
+// 	// statements
+// 	console.log(e);
+// }
