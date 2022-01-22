@@ -15,7 +15,7 @@ async function weatherApi() {
   //This function fetches the weather api and appends to the div (class div)
   try {
     const results = await fetch(
-      `http://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata.value}`
+      `https://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata.value}`
     );
     const news = await fetch(
       `https://newsapi.org/v2/everything?q=${userdata.value}&apiKey=018ab408da4a42bab061e6729b149d43`
