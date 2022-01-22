@@ -7,24 +7,24 @@
 	<title>Registration</title>
 </head>
 <body id="registrationpage">
+	<div class="container">
 
+		<form action="/home" method="POST" id="registration" class="form">
 
-	<form action="/home" method="POST" id="registration" class="form">
+			Username <input type="text" name="username" required>
+			Password <input type="password" name="password" required><br>
+			Favorite City <input type="text" name="city"required>
 
-		Username <input type="text" name="username" required>
-		Password <input type="password" name="password" required><br>
-		Favorite City <input type="text" name="city"required>
+			<button id="registrationbutton">Register</button>
 
-		<button id="registrationbutton">Register</button>
+			<br>
+			<br>
+			
+			<a class="link" href="/">Already a user? Click here to LOGIN.</a>
+			<p>Disclaimer: Please do not use your real username/password on this website. NO ENCRYPTION</p>
+		</form>
 
-		<br>
-		<br>
-		
-		<a class="link" href="/">Already a user? Click here to LOGIN.</a>
-		<p>Disclaimer: Please do not use your real username/password on this website. NO ENCRYPTION</p>
-	</form>
-
-
+	</div>
 
 	
 

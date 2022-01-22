@@ -8,18 +8,18 @@
 </head>
 <body id="login">
 
+	<div class="container">
+		<form action="/check" method="POST" class="form login">
 
-	<form action="/check" method="POST" class="form login">
+			Username <input type="text" name="username" class="username" required>
+			Password <input type="password" name="password" required>
 
-		Username <input type="text" name="username" class="username" required>
-		Password <input type="password" name="password" required>
-
-		<button id="loginbutton">Login</button> 
-		<br>
-		<br>
-		<a href="/registration" class="link">Don't have a username? Click here to register</a>
-	</form>
-	
+			<button id="loginbutton">Login</button> 
+			<br>
+			<br>
+			<a href="/registration" class="link">Don't have a username? Click here to register</a>
+		</form>
+	</div>
 	
 
 

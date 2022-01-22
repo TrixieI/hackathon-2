@@ -26,7 +26,9 @@ async function weatherApi() {
       throw new Error("Error, results are not 200");
     } else {
       let weatherResults = await results.json();
+      //if image 404 not found +1
       let newsResults = await news.json();
+      console.log(newsResults)
 
 
       //This section appends the weatherResults and teleportResults to the div class div
@@ -51,12 +53,41 @@ async function weatherApi() {
       let newsArticleTitle1 = newsResults.results[0].title;
       let newsArticleDescription1 = newsResults.results[0].description;
       let newsArticleImage1 = newsResults.results[0].image_url;
-      let newsImage1 = `<img src=${newsArticleImage1}></img>`;
+      
+      //Loops through articles and if image url is null it doesnt use the image.
+      let article = newsResults.results
 
+      for (let i = 0; i< article.length; i++){
+
+        if(article[i].image_url != null){
+          newsArticleImage1 = article[i].image_url;
+          break;
+
+        }
+
+      }
+      console.log(newsArticleImage1)
+
+      let newsImage1 = `<img src=${newsArticleImage1}></img>`;
+      
       let newsArticleTitle2 = newsResults.results[2].title;
       let newsArticleDescription2 = newsResults.results[2].description;
       let newsArticleImage2 = newsResults.results[2].image_url;
-      let newsImage2 = `<img src=${newsArticleImage2}></img>`;
+
+
+//For loop starting at the end working to beginning
+
+for (let i = (article.length - 1); i >= 0; i--){
+  if(article[i].image_url != null){
+    newsArticleImage2 = article[i].image_url;
+    break;
+
+  }
+
+}
+console.log(newsArticleImage2)
+
+let newsImage2 = `<img src=${newsArticleImage2}></img>`;
 
       //News articles are posted to div inner HTML
       newsDiv1.innerHTML = `${newsArticleTitle1}${newsImage1}
