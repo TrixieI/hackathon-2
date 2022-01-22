@@ -102,7 +102,3 @@ app.post("/check", (req, res) => {
     });
   });
 });
-
-app.get("/check", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public/travel.html"));
-});
