@@ -56,7 +56,7 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/home", (req, res) => {
-  fetch("http://localhost:3000/users").then((data) => {
+  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
     data.json().then((users) => {
       if (
         users.filter((users) => users.username === req.body.username).length > 0
@@ -78,7 +78,7 @@ app.post("/home", (req, res) => {
 });
 
 app.post("/check", (req, res) => {
-  fetch("http://localhost:3000/users").then((data) => {
+  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
     data.json().then((users) => {
       if (
         users.filter(
@@ -87,7 +87,7 @@ app.post("/check", (req, res) => {
             users.password === req.body.password
         ).length > 0
       ) {
-        res.redirect("/travel");
+        res.sendFile(path.resolve(__dirname, "public/travel.html"));
       } else if (
         users.filter(
           (users) =>

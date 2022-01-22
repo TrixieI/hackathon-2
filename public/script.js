@@ -16,8 +16,10 @@ async function weatherApi() {
   try {
     const results = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata.value}`
+
       );
     const news = await fetch(`https://newsdata.io/api/1/news?apikey=pub_389202a05ea03b4b50c3834f8089ea29cf9b&q=${userdata.value}`)
+
 
     if (results.status !== 200) {
       div.innerText = "Please make sure city spelling is correct";
@@ -25,7 +27,10 @@ async function weatherApi() {
     } else {
       let weatherResults = await results.json();
       let newsResults = await news.json();
-      console.log(newsResults)
+      let newApiResults = await newApi.json();
+
+      console.log(newApiResults);
+
       //This section appends the weatherResults and teleportResults to the div class div
       div.style.display = "block";
       let icon = document.createElement("icon");
