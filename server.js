@@ -87,7 +87,9 @@ app.post("/check", (req, res) => {
             users.password === req.body.password
         ).length > 0
       ) {
-        res.sendFile(path.resolve(__dirname, "public/travel.html"));
+        app.get("/check", (req, res) => {
+          res.sendFile(path.resolve(__dirname, "public/travel.html"));
+        });
       } else if (
         users.filter(
           (users) =>
