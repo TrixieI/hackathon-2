@@ -22,10 +22,19 @@ html,h1,h2,h3,h4,h5,h6,a{
 
 #loginbutton{
 	margin-top: 30px;
-	border-radius: 25px;
-	height: 30px;
-	width: 120px;
-	font-size: 18px
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	border-radius: 8px;
+	padding: 10px 18px 14px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1;
+	transition: transform 200ms,background 200ms;
+	background: transparent;
+	color: #000000;
+	box-shadow: 0 0 0 3px #000000 inset;
 }
 #registrationpage{
 	padding-top: 20px;
@@ -45,10 +54,25 @@ html,h1,h2,h3,h4,h5,h6,a{
 }
 #registrationbutton{
 	margin-top: 30px;
-	border-radius: 25px;
-	height: 30px;
-	width: 120px;
-	font-size: 18px
+	display: inline-block;
+	outline: 0;
+	border: 0;
+	cursor: pointer;
+	border-radius: 8px;
+	padding: 10px 18px 14px;
+	font-size: 18px;
+	font-weight: 700;
+	line-height: 1;
+	transition: transform 200ms,background 200ms;
+	background: transparent;
+	color: #000000;
+	box-shadow: 0 0 0 3px #000000 inset;
+
+}
+
+button:hover{
+	transform: translateY(-2px);	
+
 }
 .form{
 	height: -webkit-fill-available;
@@ -113,7 +137,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 .container{
 	display: flex;
 	margin-top: 15px;
-	
+
 }
 
 .div{
@@ -133,7 +157,7 @@ html,h1,h2,h3,h4,h5,h6,a{
 .news1 img{
 	height: 250px;
 	width: auto;
-	
+
 }
 
 .news2{
@@ -147,5 +171,5 @@ html,h1,h2,h3,h4,h5,h6,a{
 .news2 img{
 	height: 250px;
 	width: auto;
-	
+
 }

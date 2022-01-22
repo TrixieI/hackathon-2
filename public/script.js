@@ -5,8 +5,6 @@ let userdata = document.querySelector('.userdata')
 let button = document.querySelector('.submit')
 button.addEventListener('click', lookupWeather)
 let div = document.querySelector('.div')
-let username = document.querySelector('.username')
-let h1 = document.querySelector('#welcome')
 
 function lookupWeather(){
 	//This function is linked to the button through click and runs the weather API function to fetch data
@@ -19,21 +17,16 @@ function lookupWeather(){
 
 async function weatherApi(){
 	//This function fetches the weather api and appends to the div (class div)
-	console.log(userdata)
-	userdata = userdata.value.replace(/\s+/g, '-').toLowerCase();	
-	console.log(userdata)
 	try {
 		
 
-		const results = await fetch(`http://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata}`)
-		const teleport = await fetch(`https://api.teleport.org/api/urban_areas/slug:${userdata}/scores/`)
-		const news = await fetch(`https://newsapi.org/v2/everything?q=${userdata}&apiKey=018ab408da4a42bab061e6729b149d43`)
+		const results = await fetch(`http://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata.value}`)
+		const news = await fetch(`https://newsapi.org/v2/everything?q=${userdata.value}&apiKey=018ab408da4a42bab061e6729b149d43`)
 		if (results.status !== 200){
 			div.innerText = 'Please make sure city spelling is correct'
 			throw new Error('Error, results are not 200')
 		}else {
 			let weatherResults = await results.json();
-			let teleportResults = await teleport.json();
 			let newsResults = await news.json();
 
 			
@@ -46,15 +39,14 @@ async function weatherApi(){
 	let final = https.concat(src);
 	let img = `<img src=${final}></img>`;
 	
-	let summary = teleportResults.summary
-
+	
 	div.innerHTML = 
 	(`
 		${weatherResults.location.name} 
 		${weatherResults.location.region} ${img} 
 		Condition: ${weatherResults.current.condition.text} 
 		Current Temperature: ${weatherResults.current.temp_f} Degrees Farenheit
-		${summary}`)
+		`)
 	
 
 
