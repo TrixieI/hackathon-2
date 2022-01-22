@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+html,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  font-family: "Raleway";
+}
 #login {
   background-image: url(van.jpg);
   background-position: center;
@@ -10,11 +21,9 @@
   margin: 0 auto;
   height: 200px;
   margin-top: 250px;
-  font-family: Garamond, "Times New Roman";
   font-size: 24px;
   font-weight: bold;
 }
-
 #loginbutton {
   margin-top: 30px;
   border-radius: 25px;
@@ -35,7 +44,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  font-family: Garamond, "Times New Roman";
   font-size: 20px;
   font-weight: bold;
 }
@@ -52,15 +60,14 @@
   background: linear-gradient(
     to top,
     rgba(0, 0, 0, 0),
-    rgba(255, 255, 255, 0.5)
+    rgba(255, 255, 255, 0.75)
   );
 }
 .link {
   font-weight: bold;
   color: black;
-  font-size: 24px;
+  font-size: 18px;
 }
-
 .userdata {
   border-radius: 25px;
   width: 250px;
@@ -73,7 +80,6 @@
   width: 1fr;
   background-color: black;
   text-align: center;
-  font-family: Garamond, "Times New Roman";
   font-size: 24px;
   height: 50px;
   align-items: center;
@@ -83,7 +89,6 @@
 .submit {
   border-radius: 25px;
   height: 30px;
-
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -101,39 +106,34 @@
   text-align: center;
   padding: 17px 48px;
   color: #fff;
-  background-color: #1ed760;
+  background-color: #fcd34d;
   height: 48px;
 }
 .container {
   display: flex;
+  margin-top: 15px;
 }
-
 .div {
   display: none;
-  font-family: cursive;
   border-right: 2px solid black;
   width: 30%;
   height: 500px;
 }
-
 .news1 {
   height: 500px;
   width: 23.33%;
   cursor: pointer;
 }
-
 .news1 img {
   height: 250px;
   width: auto;
 }
-
 .news2 {
   height: 500px;
   width: 23.33%;
   cursor: pointer;
   margin-left: 145px;
 }
-
 .news2 img {
   height: 250px;
   width: auto;

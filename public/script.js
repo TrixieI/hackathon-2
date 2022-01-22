@@ -5,7 +5,8 @@ let userdata = document.querySelector('.userdata')
 let button = document.querySelector('.submit')
 button.addEventListener('click', lookupWeather)
 let div = document.querySelector('.div')
-
+let username = document.querySelector('.username')
+let h1 = document.querySelector('#welcome')
 
 function lookupWeather(){
 	//This function is linked to the button through click and runs the weather API function to fetch data
