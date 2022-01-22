@@ -20,13 +20,19 @@ async function weatherApi() {
     const news = await fetch(
       `https://newsapi.org/v2/everything?q=${userdata.value}&apiKey=018ab408da4a42bab061e6729b149d43`
     );
+    const newApi = await fetch(
+      `https://newsdata.io/api/1/news?apikey=pub_389202a05ea03b4b50c3834f8089ea29cf9b&q=${userdata.value}`
+    );
+
     if (results.status !== 200) {
       div.innerText = "Please make sure city spelling is correct";
       throw new Error("Error, results are not 200");
     } else {
       let weatherResults = await results.json();
       let newsResults = await news.json();
+      let newApiResults = await newApi.json();
 
+      console.log(newApiResults);
       //This section appends the weatherResults and teleportResults to the div class div
       div.style.display = "block";
       let icon = document.createElement("icon");

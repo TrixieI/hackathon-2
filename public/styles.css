@@ -1,179 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway');
-
-html,h1,h2,h3,h4,h5,h6,a{
-	font-family: "Raleway";
-}
-
-#login{
-	background-image: url(van.jpg);
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	text-align: center;
-	padding-top: 20px;
-	align-items: center;
-	width: 600px;
-	margin: 0 auto;
-	height: 200px;
-	margin-top: 250px;
-	font-size: 24px;
-	font-weight: bold;
-}
-
-#loginbutton{
-	margin-top: 30px;
-	display: inline-block;
-	outline: 0;
-	border: 0;
-	cursor: pointer;
-	border-radius: 8px;
-	padding: 10px 18px 14px;
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 1;
-	transition: transform 200ms,background 200ms;
-	background: transparent;
-	color: #000000;
-	box-shadow: 0 0 0 3px #000000 inset;
-}
-#registrationpage{
-	padding-top: 20px;
-	align-items: center;
-	width: 600px;
-	margin: 0 auto;
-	height: 250px;
-	text-align: center;
-	margin-top: 250px;
-	background-image: url(airbaloon.jpg); ;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-	font-size: 20px;
-	font-weight: bold;
-}
-#registrationbutton{
-	margin-top: 30px;
-	display: inline-block;
-	outline: 0;
-	border: 0;
-	cursor: pointer;
-	border-radius: 8px;
-	padding: 10px 18px 14px;
-	font-size: 18px;
-	font-weight: 700;
-	line-height: 1;
-	transition: transform 200ms,background 200ms;
-	background: transparent;
-	color: #000000;
-	box-shadow: 0 0 0 3px #000000 inset;
-
-}
-
-button:hover{
-	transform: translateY(-2px);	
-
-}
-.form{
-	height: -webkit-fill-available;
-	padding-top: 30px;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75));
-
-}
-.link{
-	font-weight: bold;
-	color: black;
-	font-size: 18px;
-
-}
-
-.userdata{
-	border-radius: 25px;
-	width: 250px;
-	height: 30px;
-	font-size: 18px;
-	padding-left: 10px;
-
-}
-.navbar{
-	display: flex;
-	width: 1fr;
-	background-color: black;
-	text-align: center;
-	font-size: 24px;
-	height: 50px;
-	align-items: center;
-	justify-content: center;
-	color: white;
-
-}
-.submit{
-	border-radius: 25px;
-	height: 30px;
-
-	display: inline-block;
-	outline: none;
-	cursor: pointer;
-	font-size: 14px;
-	line-height: 1;
-	border-radius: 500px;
-	transition-property: background-color,border-color,color,box-shadow,filter;
-	transition-duration: .3s;
-	border: 1px solid transparent;
-	letter-spacing: 2px;
-	min-width: 160px;
-	text-transform: uppercase;
-	white-space: normal;
-	font-weight: 700;
-	text-align: center;
-	padding: 17px 48px;
-	color: #fff;
-	background-color: #FCD34D;
-	height: 48px;
-
-
-
-}
-.container{
-	display: flex;
-	margin-top: 15px;
-
-}
-
-.div{
-	display: none;
-	border-right: 2px solid black;
-	width: 30%;
-	height: 500px;
-}
-
-.news1{
-
-	height: 500px;
-	width: 23.33%;
-	cursor: pointer;
-}
-
-.news1 img{
-	height: 250px;
-	width: auto;
-
-}
-
-.news2{
-
-	height: 500px;
-	width: 23.33%;
-	cursor: pointer;
-	margin-left: 145px;
-}
-
-.news2 img{
-	height: 250px;
-	width: auto;
-
-=======
 @import url("https://fonts.googleapis.com/css?family=Raleway");
+
 html,
 h1,
 h2,
@@ -184,6 +10,7 @@ h6,
 a {
   font-family: "Raleway";
 }
+
 #login {
   background-image: url(van.jpg);
   background-position: center;
@@ -199,12 +26,22 @@ a {
   font-size: 24px;
   font-weight: bold;
 }
+
 #loginbutton {
   margin-top: 30px;
-  border-radius: 25px;
-  height: 30px;
-  width: 120px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 18px 14px;
   font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 200ms, background 200ms;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 0 0 3px #000000 inset;
 }
 #registrationpage {
   padding-top: 20px;
@@ -224,10 +61,23 @@ a {
 }
 #registrationbutton {
   margin-top: 30px;
-  border-radius: 25px;
-  height: 30px;
-  width: 120px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 18px 14px;
   font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+  transition: transform 200ms, background 200ms;
+  background: transparent;
+  color: #000000;
+  box-shadow: 0 0 0 3px #000000 inset;
+}
+
+button:hover {
+  transform: translateY(-2px);
 }
 .form {
   height: -webkit-fill-available;
@@ -243,6 +93,7 @@ a {
   color: black;
   font-size: 18px;
 }
+
 .userdata {
   border-radius: 25px;
   width: 250px;
@@ -264,6 +115,7 @@ a {
 .submit {
   border-radius: 25px;
   height: 30px;
+
   display: inline-block;
   outline: none;
   cursor: pointer;
@@ -288,27 +140,32 @@ a {
   display: flex;
   margin-top: 15px;
 }
+
 .div {
   display: none;
   border-right: 2px solid black;
   width: 30%;
   height: 500px;
 }
+
 .news1 {
   height: 500px;
   width: 23.33%;
   cursor: pointer;
 }
+
 .news1 img {
   height: 250px;
   width: auto;
 }
+
 .news2 {
   height: 500px;
   width: 23.33%;
   cursor: pointer;
   margin-left: 145px;
 }
+
 .news2 img {
   height: 250px;
   width: auto;
