@@ -56,7 +56,7 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/home", (req, res) => {
-  fetch("http://localhost:3000/users").then((data) => {
+  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
     data.json().then((users) => {
       if (
         users.filter((users) => users.username === req.body.username).length > 0
@@ -77,8 +77,8 @@ app.post("/home", (req, res) => {
   });
 });
 
-app.post("/", (req, res) => {
-  fetch("http://localhost:3000/users").then((data) => {
+app.post("/check", (req, res) => {
+  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
     data.json().then((users) => {
       if (
         users.filter(
