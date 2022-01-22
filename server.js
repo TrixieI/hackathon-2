@@ -87,7 +87,7 @@ app.post("/check", (req, res) => {
             users.password === req.body.password
         ).length > 0
       ) {
-        res.redirect("/travel");
+        res.sendFile(path.resolve(__dirname, "public/travel.html"));
       } else if (
         users.filter(
           (users) =>
