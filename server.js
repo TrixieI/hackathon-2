@@ -3,6 +3,7 @@ const env = require("dotenv");
 const knex = require("knex");
 const path = require("path");
 const fetch = require("node-fetch");
+const bcrypt = require("bcryptjs");
 env.config();
 const app = express();
 const port = process.env.PORT;
@@ -33,7 +34,7 @@ app.get("/registration", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public/registration.html"));
 });
 
-app.get("/home", (req, res) => {
+app.get("/login", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public/index.html"));
 });
 
@@ -45,60 +46,85 @@ app.get("/travel", (req, res) => {
   res.sendFile(path.resolve(__dirname, "public/travel.html"));
 });
 
-app.get("/users", (req, res) => {
-  return db("users")
-    .select("user_id", "username", "password", "city")
+// app.get("/users", (req, res) => {
+//   return db("users")
+//     .select("user_id", "username", "password", "city")
 
-    .then((data) => {
-      res.json(data);
+//     .then((data) => {
+//       res.json(data);
+//     })
+//     .catch((error) => console.log(error));
+// });
+app.post("/register", async (req, res) => {
+  const reqUser = req.body.username;
+  const reqPass = req.body.password;
+  const reqCity = req.body.city;
+  if (!reqUser || !reqPass || !reqCity) {
+    res.send("Sorry please enter information into the fields");
+    return;
+  }
+
+  const reqPassHash = bcrypt.hashSync(reqPass, 10);
+
+  // Check if user exists or not
+  const exists = await db("users")
+    .select("username")
+    .where("username", reqUser);
+  if (exists.length > 0) {
+    res.send("Sorry, this user already exists! please try again!");
+    return;
+  }
+  db("users")
+    .returning(["username", "password", "city"])
+    .insert({
+      username: reqUser,
+      password: reqPassHash,
+      city: reqCity,
     })
-    .catch((error) => console.log(error));
+    .then((data) => console.log(data));
+  res.sendFile(path.resolve(__dirname, "public/index.html"));
+  return;
 });
 
-app.post("/home", (req, res) => {
-  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
-    data.json().then((users) => {
-      if (
-        users.filter((users) => users.username === req.body.username).length > 0
-      ) {
-        res.send("Sorry, this user already exists! please try again!");
-      } else {
-        res.redirect("/home");
-        return db("users")
-          .returning(["username", "password", "city"])
-          .insert({
-            username: req.body.username,
-            password: req.body.password,
-            city: req.body.city,
-          })
-          .then((data) => console.log(data));
-      }
-    });
-  });
+app.post("/login", async (req, res) => {
+  const reqUser = req.body.username;
+  const reqPass = req.body.password;
+
+  const exists = await db("users")
+    .select("password")
+    .where("username", reqUser);
+  const reqPassHash = bcrypt.compareSync(reqPass, exists[0].password);
+  if (reqPassHash) {
+    res.sendFile(path.resolve(__dirname, "public/travel.html"));
+    return;
+  } else {
+    res.send("Incorrect username or password!");
+    return;
+  }
 });
 
-app.post("/check", (req, res) => {
-  fetch("https://weathytrav.herokuapp.com/users").then((data) => {
-    data.json().then((users) => {
-      if (
-        users.filter(
-          (users) =>
-            users.username === req.body.username &&
-            users.password === req.body.password
-        ).length > 0
-      ) {
-        res.sendFile(path.resolve(__dirname, "public/travel.html"));
-      } else if (
-        users.filter(
-          (users) =>
-            users.username === req.body.username &&
-            users.password !== req.body.password
-        ).length > 0
-      ) {
-        res.send("Sorry, incorrect password!");
-      } else {
-        res.send("User doesn't exist!");
-      }
-    });
-  });
-});
+// app.post("/check", (req, res) => {
+//   .then((data) => {
+//     data.json().then((users) => {
+//       if (
+//         users.filter(
+//           (users) =>
+//             users.username === req.body.username &&
+//             users.password === req.body.password
+//         ).length > 0
+//       ) {
+//         res.sendFile(path.resolve(__dirname, "public/travel.html"));
+//       } else if (
+//         users.filter(
+//           (users) =>
+//             users.username === req.body.username &&
+//             users.password !== req.body.password
+//         ).length > 0
+//       ) {
+//         res.send("Sorry, incorrect password!");
+//       } else {
+//         res.send("User doesn't exist!");
+//       }
+//     });
+//   });
+// });
