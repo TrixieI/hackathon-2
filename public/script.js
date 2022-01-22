@@ -27,9 +27,7 @@ async function weatherApi() {
     } else {
       let weatherResults = await results.json();
       let newsResults = await news.json();
-      let newApiResults = await newApi.json();
 
-      console.log(newApiResults);
 
       //This section appends the weatherResults and teleportResults to the div class div
       div.style.display = "block";
