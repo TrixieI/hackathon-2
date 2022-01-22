@@ -1,45 +1,20 @@
-/*.div.hot{
-	background-image: url(https://media.istockphoto.com/photos/zombies-hand-silhouette-picture-id849048646?k=20&m=849048646&s=612x612&w=0&h=Nm6mUt-j-Blsu57blehtugaT8g6WemLOWCreFhHU1ng=);
-	color: white;
-	background-size: cover;
-	position: absolute;
-}
-.div.moderate{
-	background-image: url(https://media.cntraveler.com/photos/585ac0b912de81c9681fb578/master/pass/Maldives-Getty98962588.jpg);
-	color: white;
-	background-size: cover;
-	position: absolute;
-}
-.div.sunny{
-	background-image: url(https://wallpaperaccess.com/full/3265126.jpg);
-	color: white;
-	background-size: cover;
-	position: absolute;
-}
-.div.freezing{
-	background-image: url(https://media.istockphoto.com/photos/winter-forest-blizzard-picture-id137010458?b=1&k=20&m=137010458&s=170667a&w=0&h=e2hELwiVUUlFZPb0UBGS6NF7GFrF0wvB4n3Tdpcmp6c=);
-	color: black;
-	background-size: cover;
-	position: absolute;
-}*/
 #login{
+	background-image: url(van.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
 	padding-top: 20px;
 	align-items: center;
 	width: 600px;
 	margin: 0 auto;
 	height: 200px;
-	text-align: center;
 	margin-top: 250px;
-	background-image: url(van.jpg); ;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
 	font-family: Garamond, 'Times New Roman';
 	font-size: 24px;
 	font-weight: bold;
-	background-position: fixed;
 }
+
 #loginbutton{
 	margin-top: 30px;
 	border-radius: 25px;
@@ -75,10 +50,99 @@
 	height: -webkit-fill-available;
 	padding-top: 30px;
 	background: linear-gradient(to top, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5));
+
 }
 .link{
 	font-weight: bold;
 	color: black;
 	font-size: 24px;
 
+}
+
+.userdata{
+	border-radius: 25px;
+	width: 250px;
+	height: 30px;
+	font-size: 18px;
+	padding-left: 10px;
+
+}
+.navbar{
+	display: flex;
+	width: 1fr;
+	background-color: black;
+	text-align: center;
+	font-family: Garamond, 'Times New Roman';
+	font-size: 24px;
+	height: 50px;
+	align-items: center;
+	justify-content: center;
+	color: white;
+
+}
+.submit{
+	border-radius: 25px;
+	height: 30px;
+
+	display: inline-block;
+	outline: none;
+	cursor: pointer;
+	font-size: 14px;
+	line-height: 1;
+	border-radius: 500px;
+	transition-property: background-color,border-color,color,box-shadow,filter;
+	transition-duration: .3s;
+	border: 1px solid transparent;
+	letter-spacing: 2px;
+	min-width: 160px;
+	text-transform: uppercase;
+	white-space: normal;
+	font-weight: 700;
+	text-align: center;
+	padding: 17px 48px;
+	color: #fff;
+	background-color: #1ED760;
+	height: 48px;
+
+
+
+}
+.container{
+	display: flex;
+	
+}
+
+.div{
+	display: none;
+	font-family: cursive;
+	border-right: 2px solid black;
+	width: 30%;
+	height: 500px;
+}
+
+.news1{
+
+	height: 500px;
+	width: 23.33%;
+	cursor: pointer;
+}
+
+.news1 img{
+	height: 250px;
+	width: auto;
+	
+}
+
+.news2{
+
+	height: 500px;
+	width: 23.33%;
+	cursor: pointer;
+	margin-left: 145px;
+}
+
+.news2 img{
+	height: 250px;
+	width: auto;
+	
 }
