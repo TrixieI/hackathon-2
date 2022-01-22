@@ -1,4 +1,4 @@
-//This creates the button and locates necessary items from the HTML file
+//This locates necessary items from the HTML file
 
 let body = document.body;
 let userdata = document.querySelector(".userdata");
@@ -12,7 +12,7 @@ function lookupWeather() {
 }
 
 async function weatherApi() {
-  //This function fetches the weather api and appends to the div (class div)
+  //This function fetches the weather api and and news api appends to the div (class div)
   try {
     const results = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=1529a6c2d12742cea19173139220601&q=${userdata.value}`
@@ -26,12 +26,12 @@ async function weatherApi() {
       throw new Error("Error, results are not 200");
     } else {
       let weatherResults = await results.json();
-      //if image 404 not found +1
+      
       let newsResults = await news.json();
       console.log(newsResults)
 
 
-      //This section appends the weatherResults and teleportResults to the div class div
+      //This section appends the weatherResults to the div class div
       div.style.display = "block";
       let icon = document.createElement("icon");
       let src = weatherResults.current.condition.icon;
@@ -50,29 +50,28 @@ async function weatherApi() {
       let newsDiv1 = document.querySelector(".news1");
       let newsDiv2 = document.querySelector(".news2");
 
-      let newsArticleTitle1 = newsResults.results[0].title;
-      let newsArticleDescription1 = newsResults.results[0].description;
-      let newsArticleImage1 = newsResults.results[0].image_url;
-      
-      //Loops through articles and if image url is null it doesnt use the image.
+      //Loops through the articles and if image url is null it doesnt use the image.
       let article = newsResults.results
-
+      let newsArticleImage1;
+      let newsArticleTitle1;
+      let newsArticleDescription1;
       for (let i = 0; i< article.length; i++){
 
         if(article[i].image_url != null){
           newsArticleImage1 = article[i].image_url;
+          newsArticleTitle1 = article[i].title;
+          newsArticleDescription1 = article[i].description;
           break;
-
         }
-
       }
-      console.log(newsArticleImage1)
-
+      //The image that can be located is put into an img tag
       let newsImage1 = `<img src=${newsArticleImage1}></img>`;
       
-      let newsArticleTitle2 = newsResults.results[2].title;
-      let newsArticleDescription2 = newsResults.results[2].description;
-      let newsArticleImage2 = newsResults.results[2].image_url;
+
+     //Now, the same thing for the second article 
+     let newsArticleTitle2;
+     let newsArticleDescription2;
+     let newsArticleImage2;
 
 
 //For loop starting at the end working to beginning
@@ -80,14 +79,15 @@ async function weatherApi() {
 for (let i = (article.length - 1); i >= 0; i--){
   if(article[i].image_url != null){
     newsArticleImage2 = article[i].image_url;
+    newsArticleTitle2 = article[i].title;
+    newsArticleDescription2 = article[i].description;
+    newsArticleImage2 = article[i].image_url;
     break;
-
   }
 
 }
-console.log(newsArticleImage2)
-
-let newsImage2 = `<img src=${newsArticleImage2}></img>`;
+      //The image that can be located is put into an img tag
+      let newsImage2 = `<img src=${newsArticleImage2}></img>`;
 
       //News articles are posted to div inner HTML
       newsDiv1.innerHTML = `${newsArticleTitle1}${newsImage1}
@@ -108,33 +108,8 @@ let newsImage2 = `<img src=${newsArticleImage2}></img>`;
         window.location = newsResults.articles[2].link;
       }
 
-      //This section adds background images depending on current weather temperature
     }
   } catch (e) {
     console.log(e);
   }
 }
-
-// 		try {
-// 	const iconResults = await fetch(`${weatherResults.current.condition.icon}`)
-// 	if (iconResults.status !== 200){
-// 		div.innerText = 'Please make sure city spelling is correct'
-// 		throw new Error('Error, results are not 200')
-// 	}else {
-// 		let iconData = await results.json();
-// 		console.log(iconData)
-// 	} catch(e) {
-// 	// statements
-// 	console.log(e);
-// }
-
-// (function store() {
-//   let user = document.querySelector(".username");
-//   console.log(user.value);
-
-//   let username = {
-//     user: user.value,
-//   };
-//   window.localStorage.setItem(JSON.stringify(username));
-//   console.log(username);
-// })();
