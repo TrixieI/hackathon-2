@@ -102,29 +102,3 @@ app.post("/login", async (req, res) => {
     return;
   }
 });
-
-// app.post("/check", (req, res) => {
-//   .then((data) => {
-//     data.json().then((users) => {
-//       if (
-//         users.filter(
-//           (users) =>
-//             users.username === req.body.username &&
-//             users.password === req.body.password
-//         ).length > 0
-//       ) {
-//         res.sendFile(path.resolve(__dirname, "public/travel.html"));
-//       } else if (
-//         users.filter(
-//           (users) =>
-//             users.username === req.body.username &&
-//             users.password !== req.body.password
-//         ).length > 0
-//       ) {
-//         res.send("Sorry, incorrect password!");
-//       } else {
-//         res.send("User doesn't exist!");
-//       }
-//     });
-//   });
-// });
